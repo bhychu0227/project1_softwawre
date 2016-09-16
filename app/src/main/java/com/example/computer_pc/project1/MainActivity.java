@@ -1,4 +1,5 @@
 package com.example.computer_pc.project1;
+/* QuantumSphere 2016 */
 
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
