@@ -119,28 +119,33 @@ public class MainActivity extends AppCompatActivity {
             final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
 
-            int section_number = getArguments().getInt(ARG_SECTION_NUMBER);
-
+            String section_number = getString(R.string.section_int_format, getArguments().getInt(ARG_SECTION_NUMBER));
             String label;
             switch(section_number) {
-                case 1:
+                case "1":
                     label = "Connect";
-                case 2:
+                    break;
+                case "2":
                     label = "Scan";
-                case 3:
+                    break;
+                case "3":
                     label = "Video";
-                case 4:
+                    break;
+                case "4":
                     label = "Audio";
-                case 5:
+                    break;
+                case "5":
                     label = "Status";
-                case 6:
+                    break;
+                case "6":
                     label = "Webcam";
+                    break;
                 default:
-                    label = "Status";
+                    label = section_number;
 
             }
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-
+            //textView.setText(getArguments().getInt(ARG_SECTION_NUMBER));
             final Button button = (Button) rootView.findViewById(R.id.button_label);
             //button.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             button.setText(label);
