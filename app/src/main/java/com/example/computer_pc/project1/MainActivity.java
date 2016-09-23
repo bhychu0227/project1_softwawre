@@ -118,10 +118,32 @@ public class MainActivity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+
+            int section_number = getArguments().getInt(ARG_SECTION_NUMBER);
+
+            String label;
+            switch(section_number) {
+                case 1:
+                    label = "Connect";
+                case 2:
+                    label = "Scan";
+                case 3:
+                    label = "Video";
+                case 4:
+                    label = "Audio";
+                case 5:
+                    label = "Status";
+                case 6:
+                    label = "Webcam";
+                default:
+                    label = "Status";
+
+            }
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
 
             final Button button = (Button) rootView.findViewById(R.id.button_label);
-            button.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            //button.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            button.setText(label);
             button.bringToFront();
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
@@ -165,6 +187,12 @@ public class MainActivity extends AppCompatActivity {
                     return "SECTION 2";
                 case 2:
                     return "SECTION 3";
+                case 3:
+                    return "SECTION 4";
+                case 4:
+                    return "SECTION 5";
+                case 6:
+                    return "SECTION 6";
             }
             return null;
         }
