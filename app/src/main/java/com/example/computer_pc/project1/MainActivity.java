@@ -42,8 +42,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /* removing action bar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        */
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -64,8 +66,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
-
+        /* removing action bar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    */
 
     /**
      * A placeholder fragment containing a simple view.
@@ -117,9 +119,9 @@ public class MainActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+            //TextView textView = (TextView) rootView.findViewById(R.id.section_label);
 
-            String section_number = getString(R.string.section_int_format, getArguments().getInt(ARG_SECTION_NUMBER));
+            final String section_number = getString(R.string.section_int_format, getArguments().getInt(ARG_SECTION_NUMBER));
             String label;
             switch(section_number) {
                 case "1":
@@ -144,14 +146,39 @@ public class MainActivity extends AppCompatActivity {
                     label = section_number;
 
             }
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            //textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             //textView.setText(getArguments().getInt(ARG_SECTION_NUMBER));
             final Button button = (Button) rootView.findViewById(R.id.button_label);
             //button.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             button.setText(label);
             button.bringToFront();
             button.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
+
+                public void onClick(View v) { /*
+                    switch(section_number) {
+                        case "1":
+                            label = "Connect";
+                            break;
+                        case "2":
+                            label = "Scan";
+                            break;
+                        case "3":
+                            label = "Video";
+                            break;
+                        case "4":
+                            label = "Audio";
+                            break;
+                        case "5":
+                            label = "Status";
+                            break;
+                        case "6":
+                            label = "Webcam";
+                            break;
+                        default:
+                            label = section_number;
+
+                    }
+                    */
 
                 }
             });
