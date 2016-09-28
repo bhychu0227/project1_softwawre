@@ -1,23 +1,19 @@
 package com.example.computer_pc.project1;
 /* QuantumSphere 2016 */
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
-import android.widget.TextView;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
@@ -153,32 +149,30 @@ public class MainActivity extends AppCompatActivity {
             button.setText(label);
             button.bringToFront();
             button.setOnClickListener(new View.OnClickListener() {
+                final String section_number = getString(R.string.section_int_format, getArguments().getInt(ARG_SECTION_NUMBER));
 
-                public void onClick(View v) { /*
+                public void onClick(View v) {
                     switch(section_number) {
                         case "1":
-                            label = "Connect";
                             break;
                         case "2":
-                            label = "Scan";
                             break;
                         case "3":
-                            label = "Video";
                             break;
                         case "4":
-                            label = "Audio";
                             break;
                         case "5":
-                            label = "Status";
                             break;
                         case "6":
-                            label = "Webcam";
+                            /*
+                            Intent cameraIntent= new Intent(MediaStore.ACTIOvN_IMAGE_CAPTURE);
+                            getActivity().startActivityFromFragment(PlaceOrderFragment.this, cameraIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE)
+                            */
                             break;
                         default:
-                            label = section_number;
 
                     }
-                    */
+
 
                 }
             });
