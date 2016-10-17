@@ -1,23 +1,21 @@
 package com.example.computer_pc.project1;
 /* QuantumSphere 2016 */
 
-import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-
+    private final String LOG_TAG = MainActivity.class.getSimpleName();
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -26,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-    private SectionsPagerAdapter mSectionsPagerAdapter;
+    private SelectionsPagerAdapter mSelectionsPagerAdapter;
+
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -38,189 +37,51 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /* removing action bar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        */
+        Log.d(LOG_TAG, "OnCreate");
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        mSelectionsPagerAdapter = new SelectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setAdapter(mSelectionsPagerAdapter);
 
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
     }
-        /* removing action bar
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-    */
 
     /**
-     * A placeholder fragment containing a simple view.
+     * A selection fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        public PlaceholderFragment() {
-        }
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            //TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-
-            final String section_number = getString(R.string.section_int_format, getArguments().getInt(ARG_SECTION_NUMBER));
-            String label;
-            switch(section_number) {
-                case "1":
-                    label = "Connect";
-                    break;
-                case "2":
-                    label = "Scan";
-                    break;
-                case "3":
-                    label = "Video";
-                    break;
-                case "4":
-                    label = "Audio";
-                    break;
-                case "5":
-                    label = "Status";
-                    break;
-                case "6":
-                    label = "Webcam";
-                    break;
-                default:
-                    label = section_number;
-
-            }
-            //textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-            //textView.setText(getArguments().getInt(ARG_SECTION_NUMBER));
-            final Button button = (Button) rootView.findViewById(R.id.button_label);
-            //button.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-            button.setText(label);
-            button.bringToFront();
-            button.setOnClickListener(new View.OnClickListener() {
-                final String section_number = getString(R.string.section_int_format, getArguments().getInt(ARG_SECTION_NUMBER));
-
-                public void onClick(View v) {
-                    switch(section_number) {
-                        case "1":
-                            break;
-                        case "2":
-                            break;
-                        case "3":
-                            break;
-                        case "4":
-                            break;
-                        case "5":
-                            break;
-                        case "6":
-                            /*
-                            Intent cameraIntent= new Intent(MediaStore.ACTIOvN_IMAGE_CAPTURE);
-                            getActivity().startActivityFromFragment(PlaceOrderFragment.this, cameraIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE)
-                            */
-                            break;
-                        default:
-
-                    }
-
-
-                }
-            });
-
-            return rootView;
-        }
-    }
-
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
+     *
+     * TODO: Add looping to the pager adapter
      */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+    public class SelectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+
+        SelectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
         @Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            // Return a SelectionFragment.
+
+            return SelectionFragment.newInstance(position);
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 6;
+            // Show 8 total pages.
+            return 8;
         }
 
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "SECTION 1 ASDFASDF";
-                case 1:
-                    return "SECTION 2";
-                case 2:
-                    return "SECTION 3";
-                case 3:
-                    return "SECTION 4";
-                case 4:
-                    return "SECTION 5";
-                case 6:
-                    return "SECTION 6";
-            }
-            return null;
-        }
     }
+
+
 }
