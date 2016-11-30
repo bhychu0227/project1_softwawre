@@ -1,18 +1,16 @@
 package com.example.computer_pc.project1;
 /* QuantumSphere 2016 */
 
-import android.net.Uri;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
+
+
 
 public class MainActivity extends AppCompatActivity {
     private final String LOG_TAG = MainActivity.class.getSimpleName();
@@ -25,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SelectionsPagerAdapter mSelectionsPagerAdapter;
-
+    WifiP2pManager mManager;
+    WifiP2pManager.Channel mChannel;
+    BroadcastReceiver mReceiver;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -47,41 +47,8 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSelectionsPagerAdapter);
 
+        mManager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
+
 
     }
-
-
-    /**
-     * A selection fragment containing a simple view.
-     */
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     *
-     * TODO: Add looping to the pager adapter
-     */
-    public class SelectionsPagerAdapter extends FragmentPagerAdapter {
-
-
-        SelectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a SelectionFragment.
-
-            return SelectionFragment.newInstance(position);
-        }
-
-        @Override
-        public int getCount() {
-            // Show 8 total pages.
-            return 8;
-        }
-
-    }
-
-
 }

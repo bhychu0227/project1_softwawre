@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:key="video_output_file"
+        android:title="@string/video_output_file"
+        android:entries="@array/video_output_file_types"
+        android:entryValues="@array/video_output_file_values"
+        android:defaultValue="0" />
+
+    <ListPreference
+        android:key="video_resolution"
+        android:title="@string/video_resolution"
+        android:entries="@array/video_resolution_types"
+        android:entryValues="@array/video_resolution_values"
+        android:defaultValue="0" />
+
+    <ListPreference
+        android:key="video_fps"
+        android:title="@string/video_fps"
+        android:entries="@array/video_fps_types"
+        android:entryValues="@array/video_fps_values"
+        android:defaultValue="30" />
+
+    <CheckBoxPreference
+        android:key="video_moving"
+        android:title="@string/video_moving"
+        android:defaultValue="true" />
+
+
+</PreferenceScreen>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:key="scan_input_format"
+        android:title="@string/scan_input_format"
+        android:entries="@array/scan_input_types"
+        android:entryValues="@array/scan_input_values"
+        android:defaultValue="0" />
+
+    <ListPreference
+        android:key="scan_paper_size"
+        android:title="@string/scan_paper_size"
+        android:entries="@array/scan_paper_types"
+        android:entryValues="@array/scan_paper_values"
+        android:defaultValue="0"/>
+
+    <ListPreference
+        android:key="scan_timer"
+        android:title="@string/scan_timer"
+        android:entries="@array/scan_timer_secs"
+        android:entryValues="@array/scan_timer_values"
+        android:defaultValue="5" />
+
+    <ListPreference
+        android:key="scan_output_format"
+        android:title="@string/scan_output_format"
+        android:entries="@array/scan_output_types"
+        android:entryValues="@array/scan_output_values"
+        android:defaultValue="0" />
+
+    <ListPreference
+        android:key="scan_control"
+        android:title="@string/scan_control_type"
+        android:entries="@array/scan_control_types"
+        android:entryValues="@array/scan_control_values"
+        android:defaultValue="0" />
+
+    <ListPreference
+        android:key="scan_preview_time"
+        android:title="@string/scan_preview_time"
+        android:entries="@array/scan_preview_time_secs"
+        android:entryValues="@array/scan_preview_time_values"
+        android:defaultValue="5" />
+
+</PreferenceScreen>

@@ -1,13 +1,7 @@
 package com.example.computer_pc.project1;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,6 +64,9 @@ public class SelectionFragment extends Fragment {
             case "6":
                 label = "Webcam";
                 break;
+            case "7":
+                label = "Setting Fragment";
+                break;
             default:
                 label = section_number;
 
@@ -97,16 +94,22 @@ public class SelectionFragment extends Fragment {
                                 .commit();
                         break;
                     case "2":
-
+                        /*
                         ScanFragment mScanFragment = new ScanFragment();
                         SelectionFragment.this.getActivity().getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.main_content, mScanFragment, null)
                                 .addToBackStack(null)
                                 .commit();
+                                */
                         break;
                     case "3":
                         break;
                     case "4":
+                        AudioRecordFragment mAudioRecordFragment = new AudioRecordFragment();
+                        getChildFragmentManager().beginTransaction()
+                                .replace(R.id.selection_page, mAudioRecordFragment, null)
+                                .addToBackStack(null)
+                                .commit();
                         break;
                     case "5":
                         break;
@@ -120,6 +123,11 @@ public class SelectionFragment extends Fragment {
                         break;
 
                     case "7":
+                        SettingsFragment mSettingFragment = new SettingsFragment( );
+                        SelectionFragment.this.getActivity().getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.main_content, mSettingFragment)
+                                .addToBackStack(null)
+                                .commit();
                         break;
                     default:
 

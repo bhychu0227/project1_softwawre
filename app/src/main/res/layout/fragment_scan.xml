@@ -10,4 +10,18 @@
         android:layout_height="match_parent"
         android:text="@string/hello_scan_fragment" />
 
+    <Switch
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch1"
+        android:text="Default Setting"
+        android:textSize="17sp"
+        android:textColor="#f9f93d"
+        android:background="@android:color/background_dark"/>
+
+    <ExpandableListView
+        android:id="@+id/lvExp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" />
+
 </FrameLayout>

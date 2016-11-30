@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- String resource for Scan Settings Preferences -->
+    <string name="scan_input_format">Scan Format</string>
+    <string-array name="scan_input_types">
+        <item>Single page</item>
+        <item>Picture 4x4</item>
+        <item>Picture 3x4</item>
+        <item>Booklet</item>
+        <item>Receipt</item>
+    </string-array>
+    <string-array name="scan_input_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string name="scan_paper_size">Paper Size</string>
+    <string-array name="scan_paper_types">
+        <item>A4</item>
+        <item>Letter</item>
+        <item>Legal</item>
+        <item>A3</item>
+        <item>B5</item>
+    </string-array>
+    <string-array name="scan_paper_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string name="scan_timer">Timer</string>
+    <string-array name="scan_timer_secs">
+        <item>3 sec</item>
+        <item>5 sec</item>
+        <item>10 sec</item>
+    </string-array>
+    <string-array name="scan_timer_values">
+        <item>3</item>
+        <item>5</item>
+        <item>10</item>
+    </string-array>
+
+    <string name="scan_output_format">Output File</string>
+    <string-array name="scan_output_types">
+        <item>JPEG</item>
+        <item>PDF</item>
+        <item>Word.doc</item>
+    </string-array>
+    <string-array name="scan_output_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string name="scan_control_type">Control</string>
+    <string-array name="scan_control_types">
+        <item>Auto</item>
+        <item>Manual</item>
+    </string-array>
+    <string-array name="scan_control_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <string name="scan_preview_time">Preview Time</string>
+    <string-array name="scan_preview_time_secs">
+        <item>None</item>
+        <item>1 sec</item>
+        <item>5 sec</item>
+        <item>10 </item>
+    </string-array>
+    <string-array name="scan_preview_time_values">
+        <item>0</item>
+        <item>1</item>
+        <item>5</item>
+        <item>10</item>
+    </string-array>
+
+    <!-- String resource for Video Settings Preferences -->
+    <string name="video_output_file">Output File</string>
+    <string-array name="video_output_file_types">
+        <item>MP4</item>
+        <item>AVI</item>
+    </string-array>
+    <string-array name="video_output_file_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <string name="video_resolution">Resolution</string>
+    <string-array name="video_resolution_types">
+        <item>4K</item>
+        <item>HD</item>
+        <item>VGA</item>
+    </string-array>
+    <string-array name="video_resolution_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string name="video_fps">FPS</string>
+    <string-array name="video_fps_types">
+        <item>120 (Not supported by 4K)</item>
+        <item>60 (Not supported by 4K)</item>
+        <item>30</item>
+        <item>15</item>
+    </string-array>
+    <string-array name="video_fps_values">
+        <item>120</item>
+        <item>60</item>
+        <item>30</item>
+        <item>15</item>
+    </string-array>
+
+    <string name="video_moving">Is it moving</string>
+
+</resources>
